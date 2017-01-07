@@ -123,7 +123,7 @@ const FormFieldComponent = Component.extend({
   }),
 
   fieldId: computed('object', 'form', 'propertyName', function() {
-    return `${baseId}_${get(this, 'propertyName')}`;
+    return get(this, 'propertyName');
   }),
 
   fieldName: computed('object', 'modelName', 'propertyName', function() {
