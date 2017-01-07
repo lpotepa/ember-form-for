@@ -1,6 +1,5 @@
 {{#form-field propertyName
     class="text-field"
-    id=fieldId
     classNames=fieldClasses
     errorClasses=errorClasses
     hintClasses=hintClasses
@@ -16,6 +15,8 @@
     update=(action update) as |f|}}
   {{f.label required=required}}
   {{f.control
+      id=fieldId
+      class=class
       accept=accept
       accesskey=accesskey
       autocomplete=autocomplete
