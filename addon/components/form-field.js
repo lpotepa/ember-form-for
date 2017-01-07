@@ -59,6 +59,7 @@ const FormFieldComponent = Component.extend({
     let assignedClass = this.class || ''
 
     this.classNames = assignedClass.split(' ')
+    this.inputClasses = this.classNames
 
     this.classNameBindings.push(`hasErrors:${get(this, 'config.fieldHasErrorClasses')}`);
 
