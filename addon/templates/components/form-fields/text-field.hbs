@@ -1,4 +1,5 @@
 {{#form-field propertyName
+    class="text-field"
     classNames=fieldClasses
     errorClasses=errorClasses
     hintClasses=hintClasses
@@ -9,8 +10,10 @@
     object=object
     hint=hint
     form=form
+    label=label
     control=control
     update=(action update) as |f|}}
+  {{f.label required=required}}
   {{f.control
       accept=accept
       accesskey=accesskey
@@ -20,7 +23,6 @@
       dir=dir
       disabled=disabled
       hidden=hidden
-      class=class
       inputmode=inputmode
       lang=lang
       list=list
