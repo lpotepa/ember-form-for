@@ -27,7 +27,6 @@ const FormFieldComponent = Component.extend({
   config: service('ember-form-for/config'),
 
   _defaultErrorsProperty: 'errors',
-  class: '',
   errorsProperty: or('config.errorsProperty', '_defaultErrorsProperty'),
 
   errorsPath(propertyName) {
@@ -57,7 +56,9 @@ const FormFieldComponent = Component.extend({
 
     let fieldClasses = get(this, 'config.fieldClasses');
 
-    this.classNames = this.class.split(' ')
+    let assignedClass = this.class || ''
+
+    this.classNames = assignedClass.split(' ')
 
     this.classNameBindings.push(`hasErrors:${get(this, 'config.fieldHasErrorClasses')}`);
 
