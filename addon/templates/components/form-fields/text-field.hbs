@@ -1,5 +1,4 @@
 {{#form-field propertyName
-    class=class
     classNames=fieldClasses
     errorClasses=errorClasses
     hintClasses=hintClasses
@@ -13,6 +12,8 @@
     control=control
     update=(action update) as |f|}}
   {{f.control
+    `class=class
+      id=id
       accept=accept
       accesskey=accesskey
       autocomplete=autocomplete
