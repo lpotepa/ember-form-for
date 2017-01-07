@@ -16,8 +16,8 @@ const DEFAULT_CONFIG = {
 };
 
 export function initialize(application) {
-  console.log(config['ember-form-for'], 'config ember form for')
   let formForConfig = merge(DEFAULT_CONFIG, config['ember-form-for']);
+  console.log(config['ember-form-for'])
   let configService = application.lookup('service:ember-form-for/config');
 
   Object.keys(formForConfig).forEach((key) => {
