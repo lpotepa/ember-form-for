@@ -13,7 +13,6 @@ const TextFieldComponent = Component.extend({
   control: 'one-way-text',
 
   update(object, propertyName, value) {
-    console.log(this)
     set(object, propertyName, value);
   }
 });

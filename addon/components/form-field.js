@@ -83,6 +83,7 @@ const FormFieldComponent = Component.extend({
            typeof get(this, 'propertyName') === 'string');
 
     set(this, 'modelName', getWithDefault(this, 'object.modelName', get(this, 'object.constructor.modelName')));
+    console.log(this)
   },
 
   propertyNameDidChange: observer('propertyName', 'errorsProperty', function() {
