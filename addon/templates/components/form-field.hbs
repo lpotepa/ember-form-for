@@ -1,10 +1,4 @@
 {{yield (hash
-  labelText=labelText
-  label=(component 'form-label' labelText
-      for=fieldId
-      classNames=labelClasses
-      required=required
-      form=form)
   errors=(component 'form-errors'
       errorId=(concat fieldId "_error")
       errors=errors
@@ -15,7 +9,7 @@
       hintClasses=hintClasses
       hintId=(concat fieldId "_hint"))
   control=(component control value
-      id=fieldId
+      id=id
       name=fieldName
       classNames=inputClasses
       required=required
