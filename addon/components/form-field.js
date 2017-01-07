@@ -56,9 +56,10 @@ const FormFieldComponent = Component.extend({
 
     let fieldClasses = get(this, 'config.fieldClasses');
 
-    let assignedClass = this.class || ''
+    let assignedClass = this.class || '';
 
-    this.inputClasses = assignedClass.split(' ')
+    this.inputClasses = assignedClass.split(' ');
+
     [
       'inputClasses',
       'labelClasses',
