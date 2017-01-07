@@ -19,6 +19,9 @@ const RadioFieldComponent = Component.extend({
   layout,
 
   control: 'one-way-radio',
+  id: Ember.computed('propertyName', function(){
+    return this.get('propertyName');
+  }),
 
   i18n: service(),
   config: service('ember-form-for/config'),

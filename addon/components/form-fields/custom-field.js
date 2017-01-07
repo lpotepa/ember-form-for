@@ -9,6 +9,9 @@ const {
 const CustomFieldComponent = Component.extend({
   tagName: '',
   layout,
+  id: Ember.computed('propertyName', function(){
+    return this.get('propertyName');
+  }),
 
   control: 'one-way-input',
 

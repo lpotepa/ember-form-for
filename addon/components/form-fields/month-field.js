@@ -3,6 +3,9 @@ import { toMonthString } from '../../utils/date';
 
 export default TextField.extend({
   control: 'one-way-month',
+  id: Ember.computed('propertyName', function(){
+    return this.get('propertyName');
+  }),
 
   serializeValue(value) {
     if (value instanceof Date) {

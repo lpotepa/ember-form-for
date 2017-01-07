@@ -9,6 +9,9 @@ const {
 const RadioGroupComponent = Component.extend({
   tagName: '',
   layout,
+  id: Ember.computed('propertyName', function(){
+    return this.get('propertyName');
+  }),
 
   update() {
     set(...arguments);

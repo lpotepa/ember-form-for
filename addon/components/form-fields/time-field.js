@@ -4,6 +4,10 @@ import { toTimeString, toDateString } from '../../utils/date';
 export default TextField.extend({
   control: 'one-way-time',
 
+  id: Ember.computed('propertyName', function(){
+    return this.get('propertyName');
+  }),
+
   serializeValue(value) {
     if (value instanceof Date) {
       return toTimeString(value);

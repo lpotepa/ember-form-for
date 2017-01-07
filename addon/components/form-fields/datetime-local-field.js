@@ -6,6 +6,9 @@ import {
 
 export default TextField.extend({
   control: 'one-way-datetime-local',
+  id: Ember.computed('propertyName', function(){
+    return this.get('propertyName');
+  }),
 
   serializeValue(value) {
     if (value instanceof Date) {

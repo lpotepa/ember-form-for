@@ -10,6 +10,10 @@ const {
 const CheckboxGroupComponent = Component.extend({
   tagName: '',
   layout,
+  
+  id: Ember.computed('propertyName', function(){
+    return this.get('propertyName');
+  }),
 
   actions: {
     updateSelection(value, object, propertyName, include) {

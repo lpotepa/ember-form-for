@@ -6,6 +6,9 @@ const { isEmpty } = Ember;
 
 export default TextField.extend({
   control: 'one-way-date',
+  id: Ember.computed('propertyName', function(){
+    return this.get('propertyName');
+  }),
 
   serializeValue(value) {
     if (value instanceof Date) {

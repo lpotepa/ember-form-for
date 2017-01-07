@@ -11,6 +11,9 @@ const TextareaFieldComponent = Component.extend({
   layout,
 
   control: 'one-way-textarea',
+  id: Ember.computed('propertyName', function(){
+    return this.get('propertyName');
+  }),
 
   update(object, propertyName, value) {
     set(object, propertyName, value);
