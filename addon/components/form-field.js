@@ -27,6 +27,7 @@ const FormFieldComponent = Component.extend({
   config: service('ember-form-for/config'),
 
   _defaultErrorsProperty: 'errors',
+  class: '',
   errorsProperty: or('config.errorsProperty', '_defaultErrorsProperty'),
 
   errorsPath(propertyName) {
