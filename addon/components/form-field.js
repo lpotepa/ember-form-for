@@ -4,8 +4,6 @@ import layout from '../templates/components/form-field';
 import { humanize } from '../utils/strings';
 
 const {
-  Component,
-  String: { dasherize },
   assert,
   computed,
   computed: { notEmpty, or, reads },
@@ -13,11 +11,13 @@ const {
   getWithDefault,
   guidFor,
   inject: { service },
-  isEmpty,
   isPresent,
   mixin,
   observer,
-  set
+  set,
+  Component,
+  String: { dasherize },
+  isEmpty
 } = Ember;
 
 const FormFieldComponent = Component.extend({
@@ -56,9 +56,10 @@ const FormFieldComponent = Component.extend({
 
     let fieldClasses = get(this, 'config.fieldClasses');
 
-    let assignedClass = this.class || '';
+    this.classNames = (this.classNames.slice() || []).concat(fieldClasses);
 
-    this.inputClasses = assignedClass.split(' ');
+    this.classNameBindings = this.classNameBindings.slice();
+    this.classNameBindings.push(`hasErrors:${get(this, 'config.fieldHasErrorClasses')}`);
 
     [
       'inputClasses',
@@ -75,10 +76,10 @@ const FormFieldComponent = Component.extend({
   didReceiveAttrs() {
     this._super(...arguments);
 
-    assert('{{form-field}} requires an object property to be passed in',
+    assert(`{{form-field}} requires an object property to be passed in`,
            get(this, 'object') != null);
 
-    assert('{{form-field}} requires the propertyName property to be set',
+    assert(`{{form-field}} requires the propertyName property to be set`,
            typeof get(this, 'propertyName') === 'string');
 
     set(this, 'modelName', getWithDefault(this, 'object.modelName', get(this, 'object.constructor.modelName')));
@@ -123,7 +124,7 @@ const FormFieldComponent = Component.extend({
 
   fieldId: computed('object', 'form', 'propertyName', function() {
     let baseId = get(this, 'form') || get(this, 'elementId');
-    return `${baseId} ${get(this, 'propertyName')}`;
+    return `${baseId}_${get(this, 'propertyName')}`;
   }),
 
   fieldName: computed('object', 'modelName', 'propertyName', function() {
@@ -150,8 +151,8 @@ const FormFieldComponent = Component.extend({
   }),
 
   _nameForObject() {
-    return get(this, 'modelName')
-        || guidFor(get(this, 'object'));
+    return get(this, 'modelName') ||
+           guidFor(get(this, 'object'));
   },
 
   value: computed('rawValue', function() {
