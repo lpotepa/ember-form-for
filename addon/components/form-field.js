@@ -124,7 +124,8 @@ const FormFieldComponent = Component.extend({
 
   fieldId: computed('object', 'form', 'propertyName', function() {
     let baseId = get(this, 'form') || get(this, 'elementId');
-    return `${baseId} ${get(this, 'id')}`;
+    let id = get(this, 'id') || '';
+    return `${baseId} ${id}`;
   }),
 
   fieldName: computed('object', 'modelName', 'propertyName', function() {
